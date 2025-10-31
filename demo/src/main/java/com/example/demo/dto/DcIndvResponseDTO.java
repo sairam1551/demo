@@ -6,13 +6,16 @@ import java.time.LocalDateTime;
 
 public class DcIndvResponseDTO {
 
-    private String indvId;
+    private final String indvId;
+    private final LocalDateTime createdAt;
 
-    private LocalDateTime createdAt;
+    // Primary constructor used by service
+    public DcIndvResponseDTO(String indvId, LocalDateTime createdAt) {
+        this.indvId = indvId;
+        this.createdAt = createdAt;
+    }
 
-    public DcIndvResponseDTO(){}
-
-    public DcIndvResponseDTO(String indvId){
+    public DcIndvResponseDTO(String indvId) {
         this.indvId = indvId;
         this.createdAt = DateComparisons.getLocalesTimestamp();
     }
@@ -21,15 +24,7 @@ public class DcIndvResponseDTO {
         return indvId;
     }
 
-    public void setIndvId(String indvId) {
-        this.indvId = indvId;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

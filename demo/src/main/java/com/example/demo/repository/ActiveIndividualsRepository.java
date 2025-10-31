@@ -26,7 +26,7 @@ public class ActiveIndividualsRepository {
             JOIN dc_individual i ON ci.indv_id = i.indv_id
             JOIN dc_case c ON ci.case_num = c.case_num
             JOIN dc_program_enrollment p ON p.case_num = c.case_num
-            WHERE c.status = 'APPROVED'
+            WHERE c.status IN ('ACTIVE', 'APPROVED')
             AND ci.status = 'ACTIVE'
             AND ci.case_num IN(
             SELECT DISTINCT case_num FROM dc_program_enrollment 
